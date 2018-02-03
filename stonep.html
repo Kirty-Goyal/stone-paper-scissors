@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+	<title>stone paper scissors</title>
+	
+
+
+</head>
+<body>
+<div id="comp">
+ 	<div  class="game" value="scissors"><img src="scissors.png" id="choice" style="width: 200px;height:200px"></div>
+	<div  class="game" value="paper"><img src="paper.png" id="choice2" style="width: 200px;height:200px" ></div>
+	<div  class="game" value="rock"><img src="stone.png" id="choice1" style="width: 200px;height:200px"></div>
+	<h2>Choose any one</h2>
+
+
+
+	
+</div>
+
+</br></br>
+
+<div>
+<input type="textarea" id="print" value="" style="width:500px;height: 50px;border-color:rgb(100,0,0);text-align: center; text-decoration-color: black;">
+</div>
+
+<script>
+   
+	var choose = document.querySelectorAll('div.game');
+	console.log(choose);
+	choose.forEach(function(chose){
+		chose.addEventListener('click',function(){
+			let userchoice = this.getAttribute('value');
+			console.log(userchoice);
+			let compchoice = Math.random();
+			compare(compchoice,userchoice);
+		})
+	})
+		
+	
+	
+		function compare(compchoice,userchoice)
+		{
+			if(compchoice<=0.33)
+			{
+				compchoice="rock";
+			}
+			else if(compchoice<0.67)
+			{
+				compchoice="paper";
+			}
+			else compchoice="scissors";
+
+				 if(userchoice==compchoice)
+				 {  
+				 	document.getElementById("print").value = "computer choice is:"+compchoice+" tie";
+				  }
+				 else if(compchoice=="rock")
+				 {
+				 	if(userchoice=="scissors")
+				 	{
+				 		document.getElementById("print").value = "computer choice is:"+compchoice+" You lose";
+				 	}
+				 	if(userchoice=="paper")
+				 	{
+				 		document.getElementById("print").value = "computer choice is:"+compchoice+" You win";
+				 	}
+				 }
+				else if(compchoice=="paper")
+				 	 {
+				 	 	if(userchoice=="rock")
+				 	 	{
+				 	 		document.getElementById("print").value = "computer choice is:"+compchoice+" You lose";
+				 	 	}
+				 	 	if(userchoice=="scissors")
+				 	 	{
+				 	 		document.getElementById("print").value = "computer choice is:"+compchoice+" You win";
+				 	 	}
+
+				 	 }
+				 else
+				 {
+				 	if(userchoice=="rock")
+				 	{
+				 		document.getElementById("print").value = "computer choice is:"+compchoice+" you win";
+				 	}
+				 	if(userchoice=="paper")
+				 	{
+				 		document.getElementById("print").value = "computer choice is:"+compchoice+" you lose";
+				 	}
+				 }
+             
+
+
+		}
+
+	</script>
+</body>
+</html>
+
